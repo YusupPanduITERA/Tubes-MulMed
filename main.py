@@ -3,7 +3,6 @@ import mediapipe as mp
 import numpy as np
 import time
 
-# Inisialisasi Mediapipe
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp.solutions.face_mesh.FaceMesh(static_image_mode=False, max_num_faces=1, refine_landmarks=True)
 
@@ -37,7 +36,7 @@ def draw_instruction_box(frame, text, countdown):
         cv2.putText(frame, text, (top_left_x + 20, top_left_y + 50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
     cv2.putText(frame, str(countdown), (top_left_x + box_width // 2 - 20, top_left_y + 120), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255, 255, 255), 2)
 
-image_paths = ["F:\\Tubes Mulmed\\data\\1.png", "F:\\Tubes Mulmed\\data\\2.png"]
+image_paths = ["data\\1.png"]
 current_image_index = 0
 cap = cv2.VideoCapture(0)
 session, countdown, countdown_start_time = 1, 5, None
@@ -82,16 +81,18 @@ while cap.isOpened():
 
         if results.multi_face_landmarks:
             for face_landmarks in results.multi_face_landmarks:
-                forehead_x = int(face_landmarks.landmark[10].x * width)
-                forehead_y = int(face_landmarks.landmark[10].y * height) - int(img_height * 1.2)
-                left_start_x = max(0, forehead_x - mid_x)
-                right_start_x = forehead_x
-                if left_start_x + mid_x <= width:
+                forehead_y = max(0, int(face_landmarks.landmark[10].y * height) - int(img_height * 1.2))
+                left_start_x = max(0, int(face_landmarks.landmark[10].x * width) - mid_x)
+                right_start_x = int(face_landmarks.landmark[10].x * width)
+
+                if forehead_y + img_height <= height and left_start_x + mid_x <= width:
                     frame[forehead_y:forehead_y+img_height, left_start_x:left_start_x+mid_x] = img_left
-                if right_start_x + mid_x <= width:
+
+                if forehead_y + img_height <= height and right_start_x + mid_x <= width:
                     rotation_matrix = cv2.getRotationMatrix2D((mid_x // 2, img_height // 2), frame_count % 360, 1.0)
                     rotated_img_right = cv2.warpAffine(img_right, rotation_matrix, (mid_x, img_height))
                     frame[forehead_y:forehead_y+img_height, right_start_x:right_start_x+mid_x] = rotated_img_right
+
                 top_y = int(face_landmarks.landmark[10].y * height)
                 chin_y = int(face_landmarks.landmark[152].y * height)
                 if chin_y - top_y > int(0.05 * height):
