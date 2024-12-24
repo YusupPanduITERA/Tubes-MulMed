@@ -15,17 +15,17 @@ Aplikasi ini menguji reaksi pengguna terhadap instruksi dengan memanfaatkan peng
 - NumPy: Untuk perhitungan matematis.
 
 ## Fitur Utama 
-* 1. Pengujian Reaksi Wajah *
+1. Pengujian Reaksi Wajah 
 - Menginstruksikan pengguna untuk mengangguk sebagai respons terhadap instruksi yang diberikan.
 - Melacak pergerakan wajah dan mendeteksi gerakan mengangguk menggunakan landmark wajah.
 
-* 2. Segmentasi Gambar
+ 2. Segmentasi Gambar
 - Memuat gambar referensi, membagi menjadi dua bagian (kiri dan kanan), dan memadukan bagian tersebut dengan posisi wajah pengguna pada video secara dinamis.
 
-* 3. Perhitungan Akurasi
+ 3. Perhitungan Akurasi
 - Menghitung tingkat kesamaan antara bagian kiri dan kanan gambar dengan menggunakan teknik perbedaan piksel untuk menentukan nilai akurasi pengguna.
 
-* 4. Tampilan Dinamis
+ 4. Tampilan Dinamis
 - Menampilkan instruksi pada layar dengan efek overlay.
 - Memutar gambar kanan dengan animasi rotasi.
 
