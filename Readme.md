@@ -1,4 +1,8 @@
 # TUGAS BESAR MULTIMEDIA IF4021
+## Dosen Pengampu
+Martin Clinton Tosima Manullang, S.T., M.T.
+
+# Judul Final Project
 *Reaction Time* 
 
 ## Anggota Kelompok 
