@@ -50,8 +50,8 @@ Sebuah image file.
 ## 2. Instalasi  
 1. Clone repositori ini ke komputer Anda:  
    ```bash  
-   git clone "link github  
-   cd hand-sign-calculator
+   git clone https://github.com/YusupPanduITERA/Tubes-MulMed 
+   cd Tubes-MulMed
     ```
 2. Instal dependensi menggunakan requirements.txt:  
    ```bash  
