@@ -1,4 +1,6 @@
 # TUGAS BESAR MULTIMEDIA IF4021
+Ini merupakan tugas mata kuliah Sistem / Teknologi Multimedia [IF4021] Prodi Teknik Informatika
+
 ## Dosen Pengampu
 Martin Clinton Tosima Manullang, S.T., M.T.
 
